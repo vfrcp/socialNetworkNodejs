@@ -1,0 +1,45 @@
+//Legend
+  [-] = In plan
+  [/] = Started
+  [+] = Done
+
+//TODO
+  USERS: 
+    [-] Register and login without auth cheak
+    [-] Get public user data by user id
+    [-] Delete user
+    [-] Get users by page
+    [-] Get users by page and search
+    [-] Edit user data
+    [-] Follow another user
+    [-] Get user followers
+    [-] Get user followed
+    [-] Block another user
+    [-] Get friends (When another user follow too)
+  POSTS: 
+    [-] Create post
+    [-] Get post by post id
+    [-] Edit post 
+    [-] Delete post
+    [-] Get posts by page
+    [-] Get posts by page and search
+    [-] Push like
+    [-] Push dislike
+    [-] Unpush like
+    [-] Unpush dislike
+  COMMENTS:
+    [-] Post comment by post id
+    [-] Get comments to post by post id
+    [-] Edit comment by comment id
+    [-] Push like
+    [-] Push dislike
+    [-] Unpush like
+    [-] Unpush dislike
+  CHATS: 
+    [-] Create chat
+    [-] Get chat by user id
+  Message:
+    [-] Send message by chat id
+    [-] Edit message by message id
+    [-] Get messages by chat id
+    [-] Delete message by message id
