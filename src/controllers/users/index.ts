@@ -106,7 +106,7 @@ export class UsersController {
       const {page} = req.params
       const indexes = {
         start: page === 1? 0 : (page - 1) * 25,
-        end: page * 25
+        end: 25
       }
       const subscriptions = await pool.query(`SELECT * FROM subscribers WHERE user_id = $1 OFFSET ${indexes.start} LIMIT ${indexes.end}`, 
       [userId])
@@ -123,7 +123,7 @@ export class UsersController {
       const {page} = req.params
       const indexes = {
         start: page === 1? 0 : (page - 1) * 25,
-        end: page * 25
+        end: 25
       }
       const subscribers = await pool.query(`SELECT * FROM subscribers WHERE subscriber_user_id = $1 OFFSET ${indexes.start} LIMIT ${indexes.end}`,
       [userId])
@@ -165,7 +165,7 @@ export class UsersController {
       const {page} = req.params
       const indexes = {
         start: page === 1 ? 0 : (page - 1) * 25,
-        end: page * 25
+        end: 25
       }
       const blockedUsers = await pool.query(`SELECT * FROM blocked_users WHERE user_id= $1 OFFSET ${indexes.start} LIMIT ${indexes.end}`, 
       [userId])
@@ -190,7 +190,7 @@ export class UsersController {
       const {page} = req.params
       const indexes = {
         start: page === 1? 0: (page -1) * 25,
-        end: page * 25
+        end: 25
       }
       const users = await pool.query(`SELECT id, username FROM users OFFSET ${indexes.start} LIMIT ${indexes.end}`)
       if(!users.rowCount) throw usersControllerAnswers.notFoundUsers
@@ -204,7 +204,7 @@ export class UsersController {
       const {page, search} = req.params
       const indexes = {
         start: page === 1? 0: (page - 1) * 25,
-        end: page * 25
+        end: 25
       }
       const users = await pool.query(`SELECT username, id FROM users WHERE LOWER(username) LIKE LOWER($1) OFFSET ${indexes.start} LIMIT ${indexes.end}`, 
       [`%${search}%`])

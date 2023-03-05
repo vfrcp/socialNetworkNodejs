@@ -23,7 +23,7 @@ export class CommentsController {
       const {postId, page} = req.params
       const indexes = {
         start: page === 1 ? 0 : (page - 1) * 25,
-        end: page * 25
+        end: 25
       }
       const comments = await pool.query(
         `SELECT * FROM post_comments
@@ -135,7 +135,7 @@ export class CommentsController {
       if(!isCommentHasReplays.rowCount) throw commentsControllerAnswers.notHasReplays
       const indexes = {
         start: page === 1? 0: (page -1) * 25,
-        end: page * 25
+        end: 25
       }
       const replays = await pool.query(
         `SELECT * FROM comment_replays WHERE comment_id = $1 OFFSET ${indexes.start} LIMIT ${indexes.end}`, 

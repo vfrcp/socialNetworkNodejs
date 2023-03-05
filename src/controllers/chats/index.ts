@@ -34,7 +34,7 @@ export class ChatsController {
       const {chatId, page} = req.params
       const indexes = {
         start: page === 1? 0 : (page - 1) * 25,
-        end: page * 25
+        end: 25
       }
       const chat = await pool.query("SELECT user1_id, user2_id FROM chats WHERE id = $1", [chatId])
       if(!chat.rowCount) throw chatsControllerAnswers.notFoundChat
@@ -55,7 +55,7 @@ export class ChatsController {
       const {page} = req.params
       const indexes = {
         start: page === 1? 0 : (page - 1) * 25,
-        end: page * 25
+        end: 25
       }
       const chats = await pool.query(
         `SELECT * FROM chats WHERE user1_id = $1 OR user2_id = $1 OFFSET ${indexes.start} LIMIT ${indexes.end}`, 

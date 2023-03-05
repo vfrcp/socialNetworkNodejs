@@ -116,7 +116,7 @@ export class PostsController {
       const {userId, page} = req.params
       const indexes = {
         start: page === 1? 0: (page - 1) * 25,
-        end: page * 25
+        end: 25
       }
       const posts = await pool.query(`SELECT * FROM posts WHERE user_id = $1 OFFSET ${indexes.start} LIMIT ${indexes.end}`,
       [userId])
@@ -131,7 +131,7 @@ export class PostsController {
       const {search, page} = req.params
       const indexes = {
         start: page === 1 ? 0: (page - 1) * 25,
-        end: page * 25
+        end: 25
       }
       const posts = await pool.query(`SELECT * FROM posts WHERE LOWER(title) LIKE LOWER($1) OFFSET ${indexes.start} LIMIT ${indexes.end}`, 
       [`%${search}%`])
